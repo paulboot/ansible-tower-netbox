@@ -1,0 +1,30 @@
+# netbox_inventory.yml file in YAML format
+# Example command line: ansible-inventory -v --list -i netbox_inventory.yml
+
+plugin: netbox.netbox.nb_inventory
+validate_certs: False
+config_context: True
+# api_endpoint: http://192.168.144.7
+api_endpoint: http://192.168.3.8
+token: b5f9c9d5d1feccef6fc50241ae9bf0bd10411111
+group_by:
+  - device_roles
+  - platforms
+  - device_types
+  - tags
+  - sites
+compose:
+  ansible_network_os: platform.slug
+  #ansible_port: local_context_data.ansible_port
+  ansible_port: custom_fields.ssh_port
+  # For VyOS use: vyos.vyos.vyos  see: https://docs.ansible.com/ansible/latest/network/user_guide/platform_vyos.html
+  # See https://docs.ansible.com/ansible/latest/network/user_guide/platform_index.html#settings-by-platform
+  # How devices.status can be used in templates?
+#query_filters:
+#  - site: "<site-name>"
+#  - has_primary_ip: True
+#  - tag: web
+#  - role: server
+#  - cf_foo: bar # Prefix any custom fields with cf_ and pass the field value with the regular NetBox query string
+#device_query_filters:
+#  - has_primary_ip: 'true'
