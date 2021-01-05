@@ -6,7 +6,7 @@ validate_certs: False
 config_context: True
 # api_endpoint: http://192.168.144.7
 api_endpoint: http://192.168.3.8
-token: b5f9c9d5d1feccef6fc50241ae9bf0bd10411111
+token: b5f9c9d5d1feccef6fc50241ae9bf0bd104621c0
 group_by:
   - device_roles
   - platforms
